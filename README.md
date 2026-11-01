@@ -4,17 +4,20 @@
 
 ## 怎么打开
 
-**方式一：直接双击**
-打开 `index.html` 就能用。所有功能都在，只是「添加到主屏 / 离线缓存」不可用。
+**线上地址（已部署）：** https://guxi-commits.github.io/family-tool/
+
+**方式一：手机浏览器直接访问**
+打开上面网址即可用，什么都不用装。
 
 **方式二：装到手机上（推荐）**
 
-1. 把这几个文件放到任意静态托管上（GitHub Pages、Vercel、或本地起个服务）
-2. 用手机浏览器访问
-3. iOS Safari：点分享 → 「添加到主屏幕」
-4. Android Chrome：菜单 → 「安装应用」
+1. 用手机浏览器打开上面网址
+2. iOS Safari：点分享 → 「添加到主屏幕」
+3. Android Chrome：菜单 → 「安装应用」
 
 装完就是一个独立图标，断网也能用。
+
+**更新方式：** 改完代码后在 `app/` 目录 `git add -A && git commit -m "..." && git push`，Pages 会自动重新构建（约 1 分钟）。手机端下次打开时刷新即生效（Service Worker 会在后台更新缓存）。
 
 **本地起服务测试：**
 
@@ -60,8 +63,15 @@ app/
   index.html            主应用（单文件，含全部逻辑）
   manifest.webmanifest  PWA 配置
   sw.js                 离线缓存
-  icon.svg              图标
+  icon-180/192/512.png  图标（180 给 iOS，192/512 给 Android）
+  .nojekyll             关闭 GitHub Pages 的 Jekyll 处理
 ```
+
+## 部署信息
+
+- 仓库：https://github.com/Guxi-commits/family-tool
+- Pages：main 分支根目录，构建约 1 分钟
+- 仓库根目录上一级的 `deploy.mjs` 是当时的部署脚本（需要 Token 才能运行，脚本本身不含 Token）
 
 ## 边界
 
